@@ -1,74 +1,97 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="icon" href="./assets/icon/LeCinemaLogo.png">
+    <title>Le cinéma | Login</title>
 
-    <title>AquaTech | Login</title>
 
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="icon" href="assets/icon/favicon2.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+</style>
+
 </head>
 
-<body>
 
-    <!--Header-->
 
-    <div class="header">
-        <div class="container">
-            <h1 class="titulo">AquaTech</h1>
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Inicial</a>
-                </li>
-                <li>
-                    <a href="simulador.html">Simulador</a>
-                </li>
-                <li>|</li>
-                <li class="agora">
-                    <a href="#">Login</a>
-                </li>
-                <li>
-                    <a href="cadastro.html">Cadastro</a>
-                </li>
-            </ul>
-        </div>
+<body id="bodyLogin">
+
+<div class="container">
+    
+    <div id="card_login">
+        <a id="voltar" href="./cadastro.html">Ir para Home</a>
+
+        <h1 id="cadastrar">Login</h1>
+
+        <br>
+        <input id="email_input" type="text" placeholder="E-mail"><br>
+        <input type="password" id="senha_input" required placeholder="Senha"><br>
+        <br>
+        <div id="msg"></div><br><br>
+        <br>
+
+        <button onclick="verificar()" id="botao_enviar">Entrar</button>
+        <br>
+
     </div>
-
-
-    <div class="login">
+<br><br>
+      <a href="home.html"> <img id="logo" src="./assets/icon/LeCinemaLogo.png" height="8%" width="8%"></a> 
+</div>
   
-        <div class="container">
-            <div class="card card-login">
-                <h2>Olá de volta!</h2>
-                <div class="formulario">
-                    <div class="campo">
-                        <span>E-mail:</span>
-                        <input id="email_input" type="text" placeholder="Login">
-                    </div>
-                    <div class="campo">
-                        <span>Senha:</span>
-                        <input id="senha_input" type="password" placeholder="******">
-                    </div>
-                    <button class="botao">Entrar</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2024</h4>
-            <span class="version">v1.0.0</span>
-        </div>
-    </div>
-    <!--footer fim-->
-
 </body>
 
 </html>
+
+<script>
+function verificar(){
+    var tentativas = 4;
+
+        var usuario = email_input.value;
+        var senha = senha_input.value;
+        var volta = 1
+
+        div_mensagem1.innerHTML = ``;
+        div_mensagem2.innerHTML = ``;
+
+        while(volta > 0){
+
+        if(tentativas == 0){
+
+            card_login.innerHTML = `adasdasdwdwd`;
+
+        }
+        else if(usuario == "pitatech@gmail.com" && senha == '12345'){
+
+            window.location.href = `./home.html`;
+
+        }
+        else if(usuario.indexOf("@") == -1 || usuario == ''){
+
+            div_mensagem1.innerHTML = `<span style="color: red;">Insira um email válido!</span>`;
+            
+        }
+        else if(senha == ''){
+
+            div_mensagem2.innerHTML = `<span style="color: red;">Insira uma senha!</span>`;
+
+        }
+        else {
+            
+            tentativas--;
+            alert(`Usuário ou senha inválidos! ${tentativas} restantes.`)  
+            
+            if(tentativas == 0){
+
+                alert(`Tentativas excedidas!`);
+
+            }
+
+        }
+        volta--;
+        
+    }
+
+    volta++;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h4>Essa cena é de qual filme?</h4>
+  <button onclick="imagem1()">Primeira Imagem</button>
+  <br><br>
+  <div id="msg"></div>  
+
+</body>
+</html>
+<script>
+    function imagem1(){
+        msg.innerHTML = `<img width="40%" height="40%" src="https://i.pinimg.com/736x/90/ee/0c/90ee0c371e586a6f14563d120453d0f4.jpg"/>`
+        msg.innerHTML += `<br><br><button onclick="incorreto1()">Dupla Jornada</button><button onclick="correto()">Em Ritmo de Fuga</button>
+                          <button onclick="incorreto2()">Quero Matar Meu Chefe</button><button onclick="incorreto3()">Divergente</button>`
+    }
+    
+
+
+</script>

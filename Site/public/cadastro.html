@@ -1,82 +1,79 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="icon" href="./assets/icon/LeCinemaLogo.png">
+    <title>Le cinéma | Cadastro</title>
 
-  <title>AquaTech | Cadastro</title>
 
-  <link rel="stylesheet" href="styles/style.css" />
-  <link rel="icon" href="assets/icon/favicon2.ico" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+</style>
+
 </head>
 
-<body>
-  <!--header inicio-->
-  <div class="header">
-    <div class="container">
-      <h1 class="titulo">AquaTech</h1>
-      <ul class="navbar">
-        <li>
-          <a href="index.html">Inicial</a>
-        </li>
-        <li>
-          <a href="simulador.html">Simulador</a>
-        </li>
-        <li>|</li>
-        <li>
-          <a href="login.html">Login</a>
-        </li>
-        <li class="agora">
-          <a href="#">Cadastro</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!--header fim-->
 
-  <div class="login">
 
-    <div class="container">
-      <div class="card card-cadastro">
-        <h2>Bem-vindo!</h2>
-        <div class="formulario">
-          <div class="campo">
-            <span>Código de ativação:</span>
-            <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
-          </div>
-          <div class="campo">
-            <span>Nome:</span>
-            <input id="nome_input" type="text" placeholder="Seu nome" />
-          </div>
-          <div class="campo">
-            <span>E-mail:</span>
-            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-          </div>
-          <div class="campo">
-            <span>Senha:</span>
-            <input id="senha_input" type="password" placeholder="******" />
-          </div>
-          <div class="campo">
-            <span>Confirmação da Senha:</span>
-            <input id="confirmacao_senha_input" type="password" placeholder="******" />
-          </div>
-          <button class="botao">Cadastrar</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<body id="bodyCadastro">
 
-  <!--footer -->
-  <div class="footer">
-    <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2024</h4>
-      <span class="version">v1.0.0</span>
+<div class="container">
+    
+    <div id="card_cadastro">
+        <a id="voltar" href="./index.html">Voltar para Home</a>
+
+        <h1 id="cadastrar">Cadastro</h1>
+
+        <br>
+        <input id="nome_input" type="text" placeholder="Nome"><br>
+        <input id="email_input" type="text" placeholder="E-mail"><br>
+            <select id="idade_select">
+              <option>Selecione a sua idade</option>
+              <option>Entre 10 e 16</option>
+              <option>Entre 17 e 20</option>
+              <option>Entre 20 e 25</option>
+              <option>Entre 26 e 30</option>
+              <option>Entre 31 e 45</option>
+              <option>Acima de 45</option>
+            </select> <br>
+        <input type="password" id="senha_input" required placeholder="Senha"><br>
+        <input type="password" id="conf_senha_input" required placeholder="Confirme sua senha">
+        <br>
+        <div id="msg"></div><br><br>
+
+        <button onclick="verificar()" id="botao_enviar">Enviar</button>
+        <br>
+
     </div>
-  </div>
-  <!--footer-->
+<br><br>
+      <a href="home.html"> <img id="logo" src="./assets/icon/LeCinemaLogo.png" height="10%" width="10%"></a> 
+</div>
+  
 </body>
 
 </html>
+
+<script>
+
+function verificar(){
+    
+    var nome = nome_input.value;
+    var email = email_input.value;
+    var senha = senha_input.value;
+    var confSenha = conf_senha_input.value;
+
+    msg.innerHTML = ``;
+
+    if(nome == ""){
+        msg.innerHTML = `<b style="color: darkblue;">Insira um nome!</b>`;
+    } else if(email.indexOf("@") == -1 || email == ''){
+        msg.innerHTML = `<b style="color: darkblue;">Insira um email válido!</b>`;
+    } else if(senha.length < 8){
+        msg.innerHTML = `<b style="color: darkblue;">A senha deve ter 8 caracteres</b>`;
+    } else if(confSenha != senha){
+        msg = `<b style="color: darkblue;">As senhas não são iguais!</b>`;
+    }       
+}
+
+</script>
