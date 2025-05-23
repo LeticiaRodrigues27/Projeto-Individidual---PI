@@ -1,0 +1,144 @@
+body {
+  font-family: "Barlow", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  background-image: url(../assets/imgs/filmes2.jpg);
+  background-size: cover;
+}
+
+#card_cadastro {
+  display: flex; /* Para facilitar o alinhamento */
+  flex-direction: column;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  margin: 2% auto 0 auto; /* margin-top, margin-right, margin-bottom e margin-left, respectivamente */
+  /* + margem superior de 100px, centralizado horizontalmente */
+  border: 2px solid rgb(0, 0, 0); /* Borda azul de 2px de espessura */
+  border-radius: 11%;
+  padding: 3%; /* Espaçamento interno para melhor visualização */
+  box-sizing: border-box; /* Inclui padding e border na largura total */
+  background-color: #4181ba; /* Cor: Coral Colar De Safira */
+  width: 35%;
+  height: 30%;
+}
+
+#card_login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2% auto 0 auto; 
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 11%;
+  padding: 3%;
+  box-sizing: border-box;
+  background-color: #4181ba;
+  width: 35%;
+  height: 45%;
+}
+
+#nome_input {
+  background-color: #4181ba;
+  border: none;
+  border-bottom: 2px solid #000; /* Linha embaixo do input */
+  padding: 8px 0; /* Ajuste do espaçamento interno */
+  outline: none; /* Remoção o contorno */
+  width: 70%
+}
+
+#email_input {
+  background-color: #4181ba;
+  border: none;
+  border-bottom: 2px solid #000;
+  padding: 8px 0;
+  outline: none;
+  width: 70%
+}
+
+#filme_input {
+  background-color: #4181ba;
+  border: none;
+  border-bottom: 2px solid #000;
+  padding: 8px 0;
+  outline: none;
+  width: 70%
+}
+
+#genero_select {
+  background-color: #4181ba;
+  border: none;
+  border-bottom: 2px solid #000;
+  padding: 8px 0;
+  outline: none;
+  width: 70%
+}
+
+#senha_input {
+  background-color: #4181ba;
+  border: none;
+  border-bottom: 2px solid #000;
+  padding: 8px 0;
+  outline: none;
+  width: 70%
+}
+
+#conf_senha_input {
+  background-color: #4181ba;
+  border: none;
+  border-bottom: 2px solid #000;
+  padding: 8px 0;
+  outline: none;
+  width: 70%
+}
+
+#nome_input::placeholder { /* :: aplicar estilos a partes específicas de um elemento */
+  color: #000000;
+}
+
+#email_input::placeholder {
+  color: #000000;
+}
+
+#filme_input::placeholder {
+  color: #000000;
+}
+
+#genero_select::placeholder {
+  color: #000000;
+}
+
+#senha_input::placeholder {
+  color: #000000;
+}
+
+#conf_senha_input::placeholder {
+  color: #000000;
+}
+
+
+#voltar {
+  background-color: #4181ba;
+  color: white;
+}
+
+#botao_enviar {
+  background-color: #000000;
+  color: white;
+  width: 15%;
+  height: 10%;
+  padding: 2%;
+  border-radius: 4px;
+  border: transparent;
+  opacity: 90%;
+}
+
+#botao_enviar:hover { /* : é usado para pseudo-classes, que mudam o estilo de um elemento em certos estados */
+  background-color: #1a3e68;
+}
+
+#logo {
+  display: flex;
+  justify-self: center;
+  border-radius: 5%;
+  
+}

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="icon" href="./assets/icon/LeCinemaLogo.png">
+    <link rel="stylesheet" href="./styles/LoginCadastro.css">
+    <link rel="icon" href="./assets/icon/logo.png">
     <title>Le cinéma | Cadastro</title>
 
 
@@ -21,22 +21,13 @@
 <div class="container">
     
     <div id="card_cadastro">
-        <a id="voltar" href="./index.html">Voltar para Home</a>
+        <a id="voltar" href="./home.html">Voltar para Home</a>
 
         <h1 id="cadastrar">Cadastro</h1>
 
         <br>
         <input id="nome_input" type="text" placeholder="Nome"><br>
         <input id="email_input" type="text" placeholder="E-mail"><br>
-            <select id="idade_select">
-              <option>Selecione a sua idade</option>
-              <option>Entre 10 e 16</option>
-              <option>Entre 17 e 20</option>
-              <option>Entre 20 e 25</option>
-              <option>Entre 26 e 30</option>
-              <option>Entre 31 e 45</option>
-              <option>Acima de 45</option>
-            </select> <br>
         <input type="password" id="senha_input" required placeholder="Senha"><br>
         <input type="password" id="conf_senha_input" required placeholder="Confirme sua senha">
         <br>
@@ -47,7 +38,7 @@
 
     </div>
 <br><br>
-      <a href="home.html"> <img id="logo" src="./assets/icon/LeCinemaLogo.png" height="10%" width="10%"></a> 
+      <a href="home.html"> <img id="logo" src="./assets/icon/logoborda.png" height="10%" width="10%"></a> 
 </div>
   
 </body>
@@ -69,8 +60,8 @@ function verificar(){
         msg.innerHTML = `<b style="color: darkblue;">Insira um nome!</b>`;
     } else if(email.indexOf("@") == -1 || email == ''){
         msg.innerHTML = `<b style="color: darkblue;">Insira um email válido!</b>`;
-    } else if(senha.length < 8){
-        msg.innerHTML = `<b style="color: darkblue;">A senha deve ter 8 caracteres</b>`;
+    } else if(senha.length < 6){
+        msg.innerHTML = `<b style="color: darkblue;">A senha deve ter 6 caracteres</b>`;
     } else if(confSenha != senha){
         msg = `<b style="color: darkblue;">As senhas não são iguais!</b>`;
     }       

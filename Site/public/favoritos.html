@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/LoginCadastro.css">
+    <link rel="icon" href="./assets/icon/logo.png">
+    <title>Le cinéma | Favoritos</title>
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+</style>
+
+</head>
+
+
+
+<body id="bodyCadastro">
+
+<div class="container">
+    
+    <div id="card_cadastro">
+        <a id="voltar" href="./home.html">Voltar para Home</a>
+
+        <h1 id="cadastrar">Favoritos</h1>
+        <h4>Insira aqui suas preferências!</h4>
+        <br>
+        <input id="filme_input" type="text" placeholder="Filme favorito"><br>
+        <select name="" id="genero_select" placeholder="GeneroFavorito">
+            <option value="#">Genero Favorito</option>
+            <option value="1">Ação</option>
+            <option value="2">Aventura</option>
+            <option value="3">Comédia</option>
+            <option value="4">Comédia Romântica</option>
+            <option value="5">Drama</option>
+            <option value="6">Fantasia</option>
+            <option value="7">Ficção Científica</option>
+            <option value="8">Terror</option>
+            <option value="9">Suspense</option>
+            <option value="10">Romance</option>
+            <option value="11">Musical</option>
+        </select>
+        <br>
+        <div id="msg"></div><br><br>
+
+        <button onclick="verificar()" id="botao_enviar">Enviar</button>
+        <br>
+
+    </div>
+<br><br>
+      <a href="home.html"> <img id="logo" src="./assets/icon/logoborda.png" height="10%" width="10%"></a> 
+</div>
+  
+</body>
+
+</html>
+
+<script>
+
+function verificar(){
+    
+    var filme = filme_input.value;
+    var genero = genero_select.value;
+
+    msg.innerHTML = ``;
+
+    if (filme == "") {
+        msg.innerHTML = `<b style="color: darkblue">Insira um filme faborito!</b>`;
+} else if (genero == '#') {
+        msg.innerHTML = `<b style="color: darkblue">Selecione um genêro favorito!</b>`;
+}
+}
+</script>
