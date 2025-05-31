@@ -4,6 +4,7 @@
     font-family: "Barlow", sans-serif;
     font-weight: 300;
     font-style: normal;
+    font-size: 16px;
 }
 
 body {
@@ -15,14 +16,14 @@ body {
     background-attachment: fixed; /* mantém a imagem de fundo fixa quando rolamos a página */
 }
 
-/* Container principal (class)- todo conteúdo que vai ser centralizado - header, banner, social, footer */
+/* Container principal - todo conteúdo que vai ser centralizado tem essa class - header, intro, main-content e footer */
 .container {
     width: 960px;
     margin: 0 auto; /* 0 em baixo e em cima, auto na esquerda e direita */
     padding: 20px;
     background-color: #ffffff;
     border-radius: 8px;
-    box-sizing: border-box; /* Garante que padding não aumente a largura total */
+    box-sizing: border-box; /* garante que padding não aumente a largura total */
 }
 
 /* Cabeçalho (header) */
@@ -45,8 +46,8 @@ body {
 
 #logonav {
     height: 66px;
-    position: absolute;
-    left: 50%; /* posição no meio da navbar */
+    position: absolute; /* define a posição de forma independente do fluxo normal */
+    left: 20%; /* posição no meio da navbar */
     transform: translateX(-75%); /* posição horizoltal */
     top: 55px; /* posição vertical */
 }
@@ -72,59 +73,105 @@ body {
 }
 
 .navbar a:hover, .navbar .agora a:hover {
-    background-color: #59abf3;
+    background-color: #5e6973;
 }
 
-/* banner */
-.banner {
+/* introducao e content*/
+.intro {
     margin-bottom: 10px;
     text-align: center;
     /* box-sizing: border-box; */
 }
 
-.banner .container {
+.intro .container {
     background-color: #ffffff;
     border-radius: 8px;
     padding: 20px;
 }
 
-.banner img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.banner p {
-    font-size: 2em;
+.intro #titulo {
+    font-size: 2em; /* conta - 2 x 16px = 32px */
     font-weight: bold;
-    color: #4181ba;
-    margin-top: 15px;
+    color: #1A4A74;
 }
 
-.social {
+.intro .assunto, .content .assunto{
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #1A4A74;
+    margin: 3px 5px 15px 5px;
+}
+
+.intro .contexto, .content .contexto {
+    font-size: 1em;
+    font-weight: 410;
+    color: #000000;
+}
+
+.intro .caixa-contexto, .content .caixa-contexto {
+    background-color: #93c6f3;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.content #letra-musica {
+    background-color: #93c6f3;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+    padding: 10px;
+    width: fit-content;
+    justify-self: center;
+    margin: 10px;
+}
+
+.content .container {
+    margin-bottom: 8px;
+}
+
+/* main-content*/
+.main-content {
     padding-bottom: 10px;
     margin-top: 5px;
-    box-sizing: border-box;
+    box-sizing: border-box; /* garante que padding/border não aumentem o tamanho total */
 }
 
-.social .container {
+.main-content .container {
     background-color: #ffffff;
 }
 
-.social .boxes {
+.main-content .boxes {
     display: flex;
     justify-content: space-evenly;
-    flex-wrap: wrap; /* quebra de linha */
+    flex-wrap: wrap;
     gap: 20px; /* espaço entre as caixas */
 }
 
-.social .box {
+.main-content #itensdosite {
+    font-size: 1em;
+    font-weight: 410;
+    color: #000000;     
+    text-align: center;
+    margin: 0 0 5px 0;
+}
+
+.main-content .box {
     flex: 1; /* as caixas podem crescer ou diminuir */
-    min-width: 250px; /* largura mínima */
+    min-width: 100px; /* largura mínima */
     background-color: #ffffff;
     padding: 20px;
     text-align: center;
     border-radius: 8px;
+}
+
+.main-content .resumo {
+    font-weight: 410;
+    color: #000000;
+}
+
+.main-content .main-icones {
+    width: 120px;
+    height: 120px;
 }
 
 /* rodapé (footer) */
