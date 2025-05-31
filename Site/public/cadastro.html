@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/LoginCadastro.css">
-    <link rel="icon" href="./assets/icon/logo.png">
+    <link rel="stylesheet" href="./css/LoginCadastro.css">
+    <link rel="icon" href="./assets/icone+wallpaper/logoborda.png">
     <title>Le cinéma | Cadastro</title>
 
 
@@ -21,7 +21,6 @@
 <div class="container">
     
     <div id="card_cadastro">
-        <a id="voltar" href="./home.html">Voltar para Home</a>
 
         <h1 id="cadastrar">Cadastro</h1>
 
@@ -38,7 +37,7 @@
 
     </div>
 <br><br>
-      <a href="home.html"> <img id="logo" src="./assets/icon/logoborda.png" height="10%" width="10%"></a> 
+      <a href="home.html"> <img id="logo" src="./assets/icone+wallpaper/logoborda.png" height="10%" width="10%"></a> 
 </div>
   
 </body>
@@ -49,22 +48,62 @@
 
 function verificar(){
     
-    var nome = nome_input.value;
-    var email = email_input.value;
-    var senha = senha_input.value;
-    var confSenha = conf_senha_input.value;
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    var confSenhaVar = conf_senha_input.value;
 
     msg.innerHTML = ``;
 
-    if(nome == ""){
+    if(nomeVar == ""){
         msg.innerHTML = `<b style="color: darkblue;">Insira um nome!</b>`;
-    } else if(email.indexOf("@") == -1 || email == ''){
+    } else if(emailVar.indexOf("@") == -1 || emailVar == ''){
         msg.innerHTML = `<b style="color: darkblue;">Insira um email válido!</b>`;
-    } else if(senha.length < 6){
+    } else if(senhaVar.length < 6){
         msg.innerHTML = `<b style="color: darkblue;">A senha deve ter 6 caracteres</b>`;
-    } else if(confSenha != senha){
+    } else if(confSenhaVar != senhaVar){
         msg = `<b style="color: darkblue;">As senhas não são iguais!</b>`;
-    }       
+    }
+
+        // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
 }
 
 </script>

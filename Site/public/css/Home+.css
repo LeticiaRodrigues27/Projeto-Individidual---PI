@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    font-family: "Barlow", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    background-image: url(../assets/icone+wallpaper/WallpaperHome.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* mantém a imagem de fundo fixa quando rolamos a página */
+}
+
+/* Container principal (class)- todo conteúdo que vai ser centralizado - header, banner, social, footer */
+.container {
+    width: 960px;
+    margin: 0 auto; /* 0 em baixo e em cima, auto na esquerda e direita */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-sizing: border-box; /* Garante que padding não aumente a largura total */
+}
+
+/* Cabeçalho (header) */
+.header {
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.header .container {
+    background-color: #4181ba;
+    color: #ffffff;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 20px; /* cima e baixo + esquerda e direita */
+    border-radius: 8px;
+}
+
+#logonav {
+    height: 66px;
+    position: absolute;
+    left: 50%; /* posição no meio da navbar */
+    transform: translateX(-75%); /* posição horizoltal */
+    top: 55px; /* posição vertical */
+}
+
+.navbar {
+    list-style: none; /* sem marcadores */
+    margin: 2px;
+    padding: 0;
+    display: flex;
+    height: 20px;
+}
+
+.navbar li {
+    margin-left: 20px;
+}
+
+.navbar a {
+    text-decoration: none; /* sem sublinhar */
+    color: #ffffff;
+    font-weight: 500;
+    padding: 8px 8px;
+    border-radius: 8px;
+}
+
+.navbar a:hover, .navbar .agora a:hover {
+    background-color: #59abf3;
+}
+
+/* banner */
+.banner {
+    margin-bottom: 10px;
+    text-align: center;
+    /* box-sizing: border-box; */
+}
+
+.banner .container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.banner img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.banner p {
+    font-size: 2em;
+    font-weight: bold;
+    color: #4181ba;
+    margin-top: 15px;
+}
+
+.social {
+    padding-bottom: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+.social .container {
+    background-color: #ffffff;
+}
+
+.social .boxes {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap; /* quebra de linha */
+    gap: 20px; /* espaço entre as caixas */
+}
+
+.social .box {
+    flex: 1; /* as caixas podem crescer ou diminuir */
+    min-width: 250px; /* largura mínima */
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+/* rodapé (footer) */
+.footer {
+    padding: 5px 0;
+    text-align: center;
+}
+
+.footer .container {
+    background-color: #4181ba;
+    color: white;
+    border-radius: 8px;
+}
+
+.footer h4 {
+    margin: 0;
+    font-size: 1em;
+}
+
+.footer .version {
+    font-size: 0.8em;
+    color: #ffffff;
+}
+
+
+
+
+
