@@ -64,7 +64,7 @@ body {
     margin-left: 20px;
 }
 
-.navbar a{
+.navbar a {
     text-decoration: none; /* sem sublinhar */
     color: #ffffff;
     font-weight: 500;
@@ -76,11 +76,10 @@ body {
     background-color: #5e6973;
 }
 
-/* introducao e content*/
+/* introducao*/
 .intro {
     margin-bottom: 10px;
     text-align: center;
-    /* box-sizing: border-box; */
 }
 
 .intro .container {
@@ -95,51 +94,32 @@ body {
     color: #1A4A74;
 }
 
-.intro .assunto, .content .assunto{
+.intro .assunto {
     font-size: 1.2em;
     font-weight: 600;
-    color: #1A4A74;
+    color: #111111;
     margin: 3px 5px 15px 5px;
 }
 
-.intro .contexto, .content .contexto {
+.intro .contexto {
     font-size: 1em;
     font-weight: 410;
     color: #000000;
 }
 
-.intro .caixa-contexto, .content .caixa-contexto {
+.intro .caixa-contexto {
     background-color: #93c6f3;
     border-radius: 5px;
     padding: 5px;
 }
 
-.content a{
-    text-decoration: none;
-    color: #1A4A74;
-    font-weight: 500;
-}
-
-.content #letra-musica {
-    background-color: #93c6f3;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: 600;
-    padding: 10px;
-    width: fit-content;
-    justify-self: center;
-    margin: 10px;
-}
-
-.content .container {
-    margin-bottom: 8px;
-}
 
 /* main-content*/
 .main-content {
     padding-bottom: 10px;
     margin-top: 5px;
-    box-sizing: border-box; /* garante que padding/border não aumentem o tamanho total */
+    box-sizing: border-box; /* garante que padding e border não aumentem o tamanho total */
+    display: flex;
 }
 
 .main-content .container {
@@ -148,36 +128,73 @@ body {
 
 .main-content .boxes {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-wrap: wrap;
-    gap: 20px; /* espaço entre as caixas */
-}
-
-.main-content #itensdosite {
-    font-size: 1em;
-    font-weight: 410;
-    color: #000000;     
-    text-align: center;
-    margin: 0 0 5px 0;
+    gap: 10px;
 }
 
 .main-content .box {
-    flex: 1; /* as caixas podem crescer ou diminuir */
-    min-width: 100px; /* largura mínima */
     background-color: #ffffff;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     border-radius: 8px;
 }
 
-.main-content .resumo {
-    font-weight: 410;
-    color: #000000;
+.main-content .colagem-caixa {
+    width: 300px;
+    height: auto;
+    flex-shrink: 0; /* evita que a colagem-caixa encolha */
+    text-align: center;
+    padding-left: 20px;
 }
 
-.main-content .main-icones {
-    width: 120px;
-    height: 120px;
+.main-content .colagem {
+    max-width: 100%;
+    height: auto;
+}
+
+.main-content .resenha-caixa {
+    width: 550px;
+    height: 530px;
+}
+
+/* main-content configurações de texto */
+.main-content .resenha {
+    font-weight: 450;
+    color: #000000;
+    text-align: justify;
+    margin: 5px 0;
+}
+
+.main-content .nome-filme {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #216096;
+    margin: 3px 5px 5px 5px;
+}
+
+.main-content .nome-br-filme {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #111111;   
+    margin: 3px 5px 5px 5px; 
+}
+
+.main-content .titulo-resenha {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #216096;   
+    margin: 10px 5px 0 0; 
+    justify-self: flex-start;
+}
+
+.main-content .conteudo-resenha {
+    font-weight: 450;
+    color: #000000;
+    margin: 5px 0;
+    justify-self: flex-start; 
+    margin: 2px 5px 5px 0; 
 }
 
 /* rodapé (footer) */
@@ -201,8 +218,3 @@ body {
     font-size: 0.8em;
     color: #ffffff;
 }
-
-
-
-
-
