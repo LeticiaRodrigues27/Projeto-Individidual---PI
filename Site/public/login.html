@@ -36,7 +36,7 @@
 
     </div>
 <br><br>
-      <a href="home.html"> <img id="logo" src="./assets/icone+wallpaper/logoborda.png" height="10%" width="10%"></a> 
+      <a href="index.html"> <img id="logo" src="./assets/icone+wallpaper/logoborda.png" height="10%" width="10%"></a> 
 </div>
   
 </body>
@@ -44,53 +44,80 @@
 </html>
 
 <script>
-function verificar(){
-    var tentativas = 4;
 
-        var usuario = email_input.value;
-        var senha = senha_input.value;
-        var volta = 1
+var tentativas = 4;
 
-        div_mensagem1.innerHTML = ``;
-        div_mensagem2.innerHTML = ``;
+    function verificar(){
 
-        while(volta > 0){
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        msg.innerHTML = ``;
 
         if(tentativas == 0){
 
-            card_login.innerHTML = `adasdasdwdwd`;
+            msg.innerHTML = `Tentativas excedidas!`;
+
+            botao_enviar.disabled;
 
         }
-        else if(usuario == "pitatech@gmail.com" && senha == '12345'){
+        else if(emailVar == '' || senhaVar == ''){
 
-            window.location.href = `./home.html`;
-
-        }
-        else if(usuario.indexOf("@") == -1 || usuario == ''){
-
-            div_mensagem1.innerHTML = `<span style="color: red;">Insira um email válido!</span>`;
-            
-        }
-        else if(senha == ''){
-
-            div_mensagem2.innerHTML = `<span style="color: red;">Insira uma senha!</span>`;
+            msg.innerHTML = `Preencha todos os campos!`;
 
         }
         else {
-            
-            tentativas--;
-            alert(`Usuário ou senha inválidos! ${tentativas} restantes.`)  
-            
-            if(tentativas == 0){
 
-                alert(`Tentativas excedidas!`);
+            fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./index.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                msg.innerHTML = `Email ou senha incorretos!<br>`;
+                tentativas--;
+                msg.innerHTML += `Tentativas restantes: ${tentativas}`;
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
 
             }
 
         }
-        volta--;
-        
-    }
 
-    volta++;
-}
+
+</script>

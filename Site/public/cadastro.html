@@ -28,16 +28,15 @@
         <input id="nome_input" type="text" placeholder="Nome"><br>
         <input id="email_input" type="text" placeholder="E-mail"><br>
         <input type="password" id="senha_input" required placeholder="Senha"><br>
-        <input type="password" id="conf_senha_input" required placeholder="Confirme sua senha">
         <br>
         <div id="msg"></div><br><br>
 
-        <button onclick="verificar()" id="botao_enviar">Enviar</button>
+        <button onclick="cadastrar()" id="botao_enviar">Enviar</button>
         <br>
 
     </div>
 <br><br>
-      <a href="home.html"> <img id="logo" src="./assets/icone+wallpaper/logoborda.png" height="10%" width="10%"></a> 
+      <a href="index.html"> <img id="logo" src="./assets/icone+wallpaper/logoborda.png" height="10%" width="10%"></a> 
 </div>
   
 </body>
@@ -46,12 +45,11 @@
 
 <script>
 
-function verificar(){
+function cadastrar(){
     
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
-    var confSenhaVar = conf_senha_input.value;
 
     msg.innerHTML = ``;
 
@@ -61,8 +59,6 @@ function verificar(){
         msg.innerHTML = `<b style="color: darkblue;">Insira um email válido!</b>`;
     } else if(senhaVar.length < 6){
         msg.innerHTML = `<b style="color: darkblue;">A senha deve ter 6 caracteres</b>`;
-    } else if(confSenhaVar != senhaVar){
-        msg = `<b style="color: darkblue;">As senhas não são iguais!</b>`;
     }
 
         // Enviando o valor da nova input
@@ -76,16 +72,16 @@ function verificar(){
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
-        senhaServer: senhaVar,
+        senhaServer: senhaVar
       }),
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
+          // cardErro.style.display = "block";
 
-          mensagem_erro.innerHTML =
+          msg.innerHTML =
             "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
           setTimeout(() => {
