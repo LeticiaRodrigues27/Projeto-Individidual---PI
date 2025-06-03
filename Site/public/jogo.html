@@ -1,41 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Le cinéma | Jogo</title>
+
+    <link rel="stylesheet" href="css/JogoSugestão.css">
+    <link rel="icon" href="./assets/icone+wallpaper/logoborda.png">
+
 </head>
+
 <body>
-<h4>Essa cena é de qual filme?</h4>
-  <button onclick="imagem1()">Primeira Imagem</button>
-  <br><br>
-  <div id="msg"></div>  
 
-</body>
+    <div class="header">
+      <div class="container">
+        <ul class="navbar">
+          <img id="logonav" src="./assets/icone+wallpaper/logoborda.png">
+          <li class="agora"><a href="home.html">Home</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
+          <li><a href="filmes-conforto.html">Filmes Conforto</a></li>
+          <li><a href="filmes-arte.html">Filmes Arte</a></li>
+          <li><a href="sugestao.html">Sugestões</a></li>
+          <li><a href="jogo.html">Jogo</a></li>
+          <li><a href="home.html">Dashboard</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="intro">
+      <div class="container">
+        <span id="titulo">Jogo de imagens</span>
+        <p class="assunto">
+          Adivinhe o filme pela cena!
+        </p>
+        <section class="caixa-informacoes">
+        <span class="informacoes">
+          Em 'Qual é o Filme?', mostramos cenas icônicas e você precisa adivinhar o título.<br>
+          Para cada cena serão oferecidas quatro alternativas e cada imagem é uma chance de testar seu conhecimento. <br>
+          Quantos filmes você consegue acertar? Jogue agora e descubra!</span>
+          </section>
+          <br>
+          <button class="botao-jogo" onclick="jogar()">JOGAR</button>
+      </div>
+    </div>
+
+   <div class="conteudo">
+    <div class="container">
+        <p class="pergunta">Qual é o Filme?</p>
+        <div id="cena"><img id="imagem" src=""></div>
+        <div id="botoes"></div>
+        <div id="checagem"></div>
+        <!-- <section class="resultado"></section> -->
+        <span class="informacoes"></span> 
+    </div>
+   </div> 
+
+    <div class="footer">
+      <div class="container">
+        <h4>Feito por Letícia Rodrigues dos Santos &hearts; SPTech &copy; 2025</h4>
+        <span class="version">v1.0.0</span>
+      </div>
+    </div>
+
+  </body>
+
 </html>
+
 <script>
-    function imagem1(){
-        msg.innerHTML = `<img width="40%" height="40%" src="https://i.pinimg.com/736x/90/ee/0c/90ee0c371e586a6f14563d120453d0f4.jpg"/>`
-        msg.innerHTML += `<br><br><button onclick="incorreto1()">Dupla Jornada</button><button onclick="correto()">Em Ritmo de Fuga</button>
-                          <button onclick="incorreto2()">Quero Matar Meu Chefe</button><button onclick="incorreto3()">Divergente</button>`
-    }
 
-    function incorreto1() {
-        msg.innerHTML += `<br> Resposta incorreta`
-    }
+  var click = 1;
+  function jogar() {
+    var img1 = `<img id="imagem" src="assets/imgs_jogo/babydriver.jpg">`
+    var img2 = `<img id="imagem" src="assets/imgs_jogo/DeadpooleWolverine.jpeg">`
+    var img3 = `<img id="imagem" src="assets/imgs_jogo/SurfsUp.jpeg">`
+    var img4 = `<img id="imagem" src="assets/imgs_jogo/loveactualy.jpg">`
+    var img5 = `<img id="imagem" src="assets/imgs_jogo/BarbieTheMovie.jpeg">`
+    var img6 = `<img id="imagem" src="assets/imgs_jogo/gladiator2.png">`
+    var img7 = `<img id="imagem" src="assets/imgs_jogo/NowYouSeeMe2.jpeg">`
+    var img8 = `<img id="imagem" src="assets/imgs_jogo/Inception.jpeg">`
+    var img9 = `<img id="imagem" src="assets/imgs_jogo/Madagascar.jpeg">`
+    var img10 = `<img id="imagem" src="assets/imgs_jogo/TheImitationGame.jpeg">`
 
-    function incorreto2() {
-        msg.innerHTML += `<br> Resposta incorreta`
+    if (click == 1) {
+      click = 2;
+      cena.innerHTML = `${img1}`
+      botoes.innerHTML = `
+        <button id="opcaoA">Forrest Gump</button>
+        <button id="opcaoB">O Poderoso Chefão</button>
+        <button id="opcaoC">Em Ritmo de Fuga</button>
+        <button id="opcaoD">Titanic</button>`
+      checagem.innerHTML = `<button id="verificar">Verificar</button>`
     }
+  }
 
-    function incorreto3() {
-        msg.innerHTML += `<br> Resposta incorreta`
-    }
-
-    function correto() {
-        msg.innerHTML += `<br> Resposta correta!`
-    }
+  function opcaoA() {
     
-
-
+  }
 </script>

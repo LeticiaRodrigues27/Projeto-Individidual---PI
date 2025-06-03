@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Le cinéma | Sugestões</title>
+
+    <link rel="stylesheet" href="css/JogoSugestão.css">
+    <link rel="icon" href="./assets/icone+wallpaper/logoborda.png">
+
+</head>
+
+<body>
+
+    <div class="header">
+      <div class="container">
+        <ul class="navbar">
+          <img id="logonav" src="./assets/icone+wallpaper/logoborda.png">
+          <li class="agora"><a href="home.html">Home</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
+          <li><a href="filmes-conforto.html">Filmes Conforto</a></li>
+          <li><a href="filmes-arte.html">Filmes Arte</a></li>
+          <li><a href="sugestao.html">Sugestões</a></li>
+          <li><a href="jogo.html">Jogo</a></li>
+          <li><a href="home.html">Dashboard</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="intro">
+      <div class="container">
+        <span id="titulo">Sugestões de usuários</span>
+        <p class="assunto">
+          Deixe aqui a sua recomendação!
+        </p>
+        <section class="caixa-informacoes">
+        <span class="informacoes">
+          Nesta área, você pode compartilhar suas melhores sugestões de filmes com outros amantes do cinema.<br>
+          Seja qual for o gênero, todas as recomendações são bem-vindas <br>
+          Ajude a construir uma lista colaborativa de filmes que todos vão amar assistir!</span>
+          </section>
+          <br>
+          <input id="nome-filme" type="text">
+          <button id="botao-adicionar" onclick="adicionar()">Adicionar</button>
+      </div>
+    </div>
+
+   <div class="conteudo">
+    <div class="container">
+        <p class="assunto">Filmes sugeridos</p>
+        <div id="mostrarLista"></div>
+        <span class="informacoes"></span> 
+    </div>
+   </div> 
+
+    <div class="footer">
+      <div class="container">
+        <h4>Feito por Letícia Rodrigues dos Santos &hearts; SPTech &copy; 2025</h4>
+        <span class="version">v1.0.0</span>
+      </div>
+    </div>
+
+  </body>
+
+</html>
+
+<script>
+    ListaFilmesSugeridos = []
+    function adicionar() {
+        var filme = nome-filme.value;
+        ListaFilmesSugeridos.push(filme)
+
+        if (filme == "") {
+            mostrarLista.innerHTML = `<br> Preencha todos o campo para registrar um filme`
+        } else if (ListaFilmesSugeridos.includes(filme)) {
+            mostrarLista.innerHTML = `<br>Esse filme já está já na lista. Que tal tentar outro?`
+        } else if (filme.len < 3) {
+            mostrarLista.innerHTML = `<br> Quantidade inválida de caracteres. Que tal tentar de novo?`
+        } else {
+            mostrarLista.innerHTML = `<br> Filme ${filme} registrado com sucesso`
+            ListaFilmesSugeridos.push(filme)
+        }
+
+    }
+
+</script>

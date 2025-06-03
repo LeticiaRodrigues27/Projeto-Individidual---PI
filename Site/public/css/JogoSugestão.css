@@ -16,7 +16,7 @@ body {
     background-attachment: fixed; /* mantém a imagem de fundo fixa quando rolamos a página */
 }
 
-/* Container principal - todo conteúdo que vai ser centralizado tem essa class - header, intro, main-content e footer */
+/* Container principal - todo conteúdo que vai ser centralizado tem essa class - header, intro e footer */
 .container {
     width: 960px;
     margin: 0 auto; /* 0 em baixo e em cima, auto na esquerda e direita */
@@ -76,7 +76,22 @@ body {
     background-color: #5e6973;
 }
 
-/* introducao e content*/
+/* introducao e conteudo*/
+.intro .botao-jogo {
+  background-color: #4181ba;
+  color: #ffffff;
+  width: 75px;
+  height: 35px;
+  padding: 3px;
+  border-radius: 5px;
+  border: transparent;
+  font-weight: 700;
+}
+
+.intro .botao-jogo:hover {
+    background-color: #5e6973;
+}
+
 .intro {
     margin-bottom: 10px;
     text-align: center;
@@ -95,32 +110,28 @@ body {
     color: #1A4A74;
 }
 
-.intro .assunto, .content .assunto{
+.intro .assunto, .conteudo .pergunta{
     font-size: 1.2em;
     font-weight: 600;
-    color: #000000;
+    color: #111111;
     margin: 3px 5px 15px 5px;
+    justify-self: center;
 }
 
-.intro .contexto, .content .contexto {
+.intro .informacoes, .conteudo .informacoes {
     font-size: 1em;
     font-weight: 410;
     color: #000000;
 }
 
-.intro .caixa-contexto, .content .caixa-contexto {
+.intro .caixa-informacoes, .conteudo .caixa-informacoes {
     background-color: #93c6f3;
     border-radius: 5px;
     padding: 5px;
 }
 
-.content a{
-    text-decoration: none;
-    color: #143b5e;
-    font-weight: 500;
-}
 
-.content #letra-musica {
+.conteudo .resultado {
     background-color: #93c6f3;
     border-radius: 5px;
     text-align: center;
@@ -131,53 +142,106 @@ body {
     margin: 10px;
 }
 
-.content .container {
+.conteudo .container {
     margin-bottom: 8px;
 }
 
-/* main-content*/
-.main-content {
-    padding-bottom: 10px;
-    margin-top: 5px;
-    box-sizing: border-box; /* garante que padding/border não aumentem o tamanho total */
-}
-
-.main-content .container {
-    background-color: #ffffff;
-}
-
-.main-content .boxes {
+.conteudo #cena {
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    gap: 20px; /* espaço entre as caixas */
+    justify-content: center;
 }
 
-.main-content #itensdosite {
+.conteudo #cena #imagem {
+    border-radius: 7px;
+    width: 450px; 
+    height: auto
+}
+
+.conteudo #botoes {
+    justify-self: center;    
+}
+
+.conteudo #opcaoA {
+    margin-top: 10px;
+    background-color: #5e6973;
+    font-size: 0.9em;
+    color: #ffffff;    
+    width: 130px;
+    height: 30px;
+    padding: 2px;
+    border-radius: 4px;
+    border: transparent;
+    font-weight: 500;
+}
+
+.conteudo #opcaoB {
+    margin-top: 10px;
+    background-color: #5e6973;
+    font-size: 0.9em;
+    color: #ffffff;    
+    width: 130px;
+    height: 30px;
+    padding: 2px;
+    border-radius: 4px;
+    border: transparent;
+    font-weight: 500;
+}
+
+.conteudo #opcaoC {
+    margin-top: 10px;
+    background-color: #5e6973;
+    font-size: 0.9em;
+    color: #ffffff;    
+    width: 130px;
+    height: 30px;
+    padding: 2px;
+    border-radius: 4px;
+    border: transparent;
+    font-weight: 500;
+}
+
+.conteudo #opcaoD {
+    margin-top: 10px;
+    background-color: #5e6973;
+    font-size: 0.9em;
+    color: #ffffff;    
+    width: 130px;
+    height: 30px;
+    padding: 2px;
+    border-radius: 4px;
+    border: transparent;
+    font-weight: 500;
+}
+
+.conteudo #verificar {
+    display: flex;
+    justify-self: center;
+    margin-top: 10px;
+    background-color:#216096;
     font-size: 1em;
-    font-weight: 410;
-    color: #000000;     
-    text-align: center;
-    margin: 0 0 5px 0;
+    color: #ffffff;    
+    width: 70px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 4px;
+    border: transparent;
+    font-weight: 500;
 }
 
-.main-content .box {
-    flex: 1; /* as caixas podem crescer ou diminuir */
-    min-width: 100px; /* largura mínima */
-    background-color: #ffffff;
-    padding: 20px;
-    text-align: center;
-    border-radius: 8px;
+#nome-filme {
+    outline-width: thick;
+    outline-color: #000000;
 }
 
-.main-content .resumo {
-    font-weight: 410;
-    color: #000000;
-}
-
-.main-content .main-icones {
-    width: 120px;
-    height: 120px;
+#botao-adicionar {
+    background-color: #4181ba;
+    color: #ffffff;
+    width: 70px;
+    height: 40px;
+    padding: 3px;
+    border-radius: 5px;
+    border: transparent;
+    font-weight: 700;    
 }
 
 /* rodapé (footer) */

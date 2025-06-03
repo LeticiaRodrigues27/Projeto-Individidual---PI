@@ -147,11 +147,13 @@ body {
     flex-shrink: 0; /* evita que a colagem-caixa encolha */
     text-align: center;
     padding-left: 20px;
+    display: flex;
 }
 
 .main-content .colagem {
     max-width: 100%;
     height: auto;
+    border-radius: 7px;
 }
 
 .main-content .resenha-caixa {
