@@ -110,7 +110,7 @@ body {
     color: #1A4A74;
 }
 
-.intro .assunto, .conteudo .pergunta{
+.intro .assunto, .conteudo .assunto{
     font-size: 1.2em;
     font-weight: 600;
     color: #111111;
@@ -236,12 +236,12 @@ body {
 #botao-adicionar {
     background-color: #4181ba;
     color: #ffffff;
-    width: 70px;
-    height: 40px;
+    width: 77px;
+    height: 30px;
     padding: 3px;
     border-radius: 5px;
     border: transparent;
-    font-weight: 700;    
+    font-weight: 700;
 }
 
 /* rodapé (footer) */

@@ -8,7 +8,7 @@
 
     <title>Le cinéma | Sugestões</title>
 
-    <link rel="stylesheet" href="css/JogoSugestão.css">
+    <link rel="stylesheet" href="css/Sugestão.css">
     <link rel="icon" href="./assets/icone+wallpaper/logoborda.png">
 
 </head>
@@ -25,7 +25,6 @@
           <li><a href="filmes-conforto.html">Filmes Conforto</a></li>
           <li><a href="filmes-arte.html">Filmes Arte</a></li>
           <li><a href="sugestao.html">Sugestões</a></li>
-          <li><a href="jogo.html">Jogo</a></li>
           <li><a href="home.html">Dashboard</a></li>
         </ul>
       </div>
@@ -44,7 +43,7 @@
           Ajude a construir uma lista colaborativa de filmes que todos vão amar assistir!</span>
           </section>
           <br>
-          <input id="nome-filme" type="text">
+          <input id="nomefilme" type="text">
           <button id="botao-adicionar" onclick="adicionar()">Adicionar</button>
       </div>
     </div>
@@ -69,22 +68,41 @@
 </html>
 
 <script>
-    ListaFilmesSugeridos = []
-    function adicionar() {
-        var filme = nome-filme.value;
-        ListaFilmesSugeridos.push(filme)
+    let ListaFilmesSugeridos = JSON.parse(localStorage.getItem('filmesSugeridos')) || [];
 
-        if (filme == "") {
-            mostrarLista.innerHTML = `<br> Preencha todos o campo para registrar um filme`
-        } else if (ListaFilmesSugeridos.includes(filme)) {
-            mostrarLista.innerHTML = `<br>Esse filme já está já na lista. Que tal tentar outro?`
-        } else if (filme.len < 3) {
-            mostrarLista.innerHTML = `<br> Quantidade inválida de caracteres. Que tal tentar de novo?`
+    function exibirLista() {
+        if (ListaFilmesSugeridos.length === 0) {
+            mostrarLista.innerHTML = `<br>Nenhum filme sugerido ainda. Seja o primeiro a adicionar!`;
         } else {
-            mostrarLista.innerHTML = `<br> Filme ${filme} registrado com sucesso`
-            ListaFilmesSugeridos.push(filme)
+            let htmlLista = '<ul>';
+            for (let i = 0; i < ListaFilmesSugeridos.length; i++) {
+                htmlLista += `<li>${ListaFilmesSugeridos[i]}</li>`;
+            }
+            htmlLista += '</ul>';
+            mostrarLista.innerHTML = htmlLista;
         }
+    }
 
+    window.onload = exibirLista;
+
+    function adicionar() {
+        var filme = nomefilme.value.trim(); // .trim() remove espaços em branco extras
+
+        if (filme === "") {
+            mostrarLista.innerHTML = `<br>Preencha o campo para registrar um filme.`;
+        } else if (ListaFilmesSugeridos.includes(filme)) {
+            mostrarLista.innerHTML = `<br>Esse filme já está na lista. Que tal tentar outro?`;
+        } else if (filme.length < 3) {
+            mostrarLista.innerHTML = `<br>Quantidade inválida de caracteres (mínimo 3). Que tal tentar de novo?`;
+        } else {
+            ListaFilmesSugeridos.push(filme);
+            // salva a lista atualizada no localStorage
+            localStorage.setItem('filmesSugeridos', JSON.stringify(ListaFilmesSugeridos));
+            
+            mostrarLista.innerHTML = `<br>Filme "${filme}" registrado com sucesso!`;
+            exibirLista(); 
+            nomefilme.value = "";
+        }
     }
 
 </script>
