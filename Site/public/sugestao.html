@@ -2,107 +2,140 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Le cinéma | Sugestões</title>
+  <title>Le cinéma | Sugestões</title>
 
-    <link rel="stylesheet" href="css/Sugestão.css">
-    <link rel="icon" href="./assets/icone+wallpaper/logoborda.png">
+  <link rel="stylesheet" href="css/Sugestão.css">
+  <link rel="icon" href="./assets/icone+wallpaper/logoborda.png">
 
 </head>
 
 <body>
 
-    <div class="header">
-      <div class="container">
-        <ul class="navbar">
-          <img id="logonav" src="./assets/icone+wallpaper/logoborda.png">
-          <li class="agora"><a href="home.html">Home</a></li>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="cadastro.html">Cadastro</a></li>
-          <li><a href="filmes-conforto.html">Filmes Conforto</a></li>
-          <li><a href="filmes-arte.html">Filmes Arte</a></li>
-          <li><a href="sugestao.html">Sugestões</a></li>
-          <li><a href="home.html">Dashboard</a></li>
-        </ul>
-      </div>
+  <div class="header">
+    <div class="container">
+      <ul class="navbar">
+        <img id="logonav" src="./assets/icone+wallpaper/logoborda.png">
+        <li class="agora"><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="filmes-conforto.html">Filmes Conforto</a></li>
+        <li><a href="filmes-arte.html">Filmes Arte</a></li>
+        <li><a href="sugestao.html">Sugestões</a></li>
+        <li><a href="index.html">Dashboard</a></li>
+      </ul>
     </div>
-  
-    <div class="intro">
-      <div class="container">
-        <span id="titulo">Sugestões de usuários</span>
-        <p class="assunto">
-          Deixe aqui a sua recomendação!
-        </p>
-        <section class="caixa-informacoes">
+  </div>
+
+  <div class="intro">
+    <div class="container">
+      <span id="titulo">Sugestões de usuários</span>
+      <p class="assunto">
+        Deixe aqui a sua recomendação!
+      </p>
+      <section class="caixa-informacoes">
         <span class="informacoes">
           Nesta área, você pode compartilhar suas melhores sugestões de filmes com outros amantes do cinema.<br>
           Seja qual for o gênero, todas as recomendações são bem-vindas <br>
           Ajude a construir uma lista colaborativa de filmes que todos vão amar assistir!</span>
-          </section>
-          <br>
-          <input id="nomefilme" type="text">
-          <button id="botao-adicionar" onclick="adicionar()">Adicionar</button>
-      </div>
+      </section>
+      <br>
+      <input id="input_nome_filme" type="text">
+      <button id="botao-adicionar" onclick="adicionar()">Adicionar</button>
     </div>
+  </div>
 
-   <div class="conteudo">
+  <div class="conteudo">
     <div class="container">
-        <p class="assunto">Filmes sugeridos</p>
-        <div id="mostrarLista"></div>
-        <span class="informacoes"></span> 
+      <p class="assunto">Filmes sugeridos</p>
+      <div id="mostrarLista"></div>
+      <span class="informacoes"></span>
     </div>
-   </div> 
+  </div>
 
-    <div class="footer">
-      <div class="container">
-        <h4>Feito por Letícia Rodrigues dos Santos &hearts; SPTech &copy; 2025</h4>
-        <span class="version">v1.0.0</span>
-      </div>
+  <div class="footer">
+    <div class="container">
+      <h4>Feito por Letícia Rodrigues dos Santos &hearts; SPTech &copy; 2025</h4>
+      <span class="version">v1.0.0</span>
     </div>
+  </div>
 
-  </body>
+</body>
 
 </html>
 
 <script>
-    let ListaFilmesSugeridos = JSON.parse(localStorage.getItem('filmesSugeridos')) || [];
 
-    function exibirLista() {
-        if (ListaFilmesSugeridos.length === 0) {
-            mostrarLista.innerHTML = `<br>Nenhum filme sugerido ainda. Seja o primeiro a adicionar!`;
-        } else {
-            let htmlLista = '<ul>';
-            for (let i = 0; i < ListaFilmesSugeridos.length; i++) {
-                htmlLista += `<li>${ListaFilmesSugeridos[i]}</li>`;
+  function adicionar() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+    var nomeFilme = input_nome_filme.value;
+    var corpo = {
+      nomeFilme,
+      idUsuario
+    }
+
+    fetch('/filmes', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(corpo),
+    })
+      .then(function (response) {
+
+        response.json()
+          .then(
+            function (dados) {
+              console.log("DADOS: ", dados);
             }
-            htmlLista += '</ul>';
-            mostrarLista.innerHTML = htmlLista;
-        }
-    }
+          )
 
-    window.onload = exibirLista;
+      })
+  }
 
-    function adicionar() {
-        var filme = nomefilme.value.trim(); // .trim() remove espaços em branco extras
+  var lista_sugestoes = [];
 
-        if (filme === "") {
-            mostrarLista.innerHTML = `<br>Preencha o campo para registrar um filme.`;
-        } else if (ListaFilmesSugeridos.includes(filme)) {
-            mostrarLista.innerHTML = `<br>Esse filme já está na lista. Que tal tentar outro?`;
-        } else if (filme.length < 3) {
-            mostrarLista.innerHTML = `<br>Quantidade inválida de caracteres (mínimo 3). Que tal tentar de novo?`;
-        } else {
-            ListaFilmesSugeridos.push(filme);
-            // salva a lista atualizada no localStorage
-            localStorage.setItem('filmesSugeridos', JSON.stringify(ListaFilmesSugeridos));
-            
-            mostrarLista.innerHTML = `<br>Filme "${filme}" registrado com sucesso!`;
-            exibirLista(); 
-            nomefilme.value = "";
-        }
-    }
+  function buscarFilmes() {
+    fetch('/filmes')
+      .then(function (resposta) {
+        console.log(resposta);
 
+        resposta.json()
+          .then(function (dados) {
+            console.log(dados);
+            lista_sugestoes = dados; // atualiza a lista de sugestões com base nos dados retornados do BANCO
+
+            var mensagem = '';
+
+            for (let i = 0; i < lista_sugestoes.length; i++) { // percorre a lista de sugestões para exibir na tela
+              const sugestao = lista_sugestoes[i];
+              mensagem += `${sugestao.FilmeSugerido} <br>`;
+            }
+
+            mostrarLista.innerHTML = mensagem;
+          })
+      })
+      .catch(function (erro) {
+        console.error(erro);
+      })
+  }
+
+
+  function buscarTotalUsuarios() {
+    fetch('/filmes/total-sugestoes')
+      .then(function (resposta) {
+        console.log(resposta);
+
+        resposta.json()
+          .then(function (dados) {
+            console.log(dados);
+          })
+      })
+      .catch(function (erro) {
+        console.error(erro);
+      })
+  }
 </script>

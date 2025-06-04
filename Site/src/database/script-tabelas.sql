@@ -37,5 +37,4 @@ constraint fkJogoResultado foreign key (fkJogo)
 );
 
 -- npm run dev
--- parece npm start
--- mas atualiza sozinho
+-- parece npm start, mas atualiza sozinho
