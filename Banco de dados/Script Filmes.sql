@@ -20,22 +20,15 @@ constraint fkUsuarioSugestao foreign key (fkUsuario)
 	references Usuario(IdUsuario)
 );
 
-create table Jogo (
-IdJogo int primary key auto_increment,
-QtdAcertos int,
-QtdErros int
-);
+-- Select para a KPI de total de usuários que sugeriram
+SELECT COUNT(fkUsuario) as 'TotalUsuários' FROM Sugestao;
 
--- Tabela associativa
-create table Resultado (
-IdResultado int,
-fkUsuario int,
-fkJogo int,
-DataJogo date,
-constraint pkCompostaResUsuar primary key (IdResultado, fkUsuario, fkJogo),
-constraint fkUsuarioResultado foreign key (fkUsuario)
-	references Usuario(IdUsuario),
-constraint fkJogoResultado foreign key (fkJogo)
-	references Jogo(IdJogo)
-);
+-- Select para a KPI de total de sugestões,
+SELECT COUNT(FilmeSugerido) as 'TotalSugestoes' FROM Sugestao;
+
+-- Select para gráfico de quantidade de sugestões de usuários (5 úsuários)
+SELECT Nome, COUNT(FilmeSugerido) as 'SugestõesUsuário' FROM Sugestao JOIN Usuario ON idUsuario = fkUsuario GROUP BY (fkUsuario) limit 5;
+
+select * from usuario;
+select * from sugestao;
 

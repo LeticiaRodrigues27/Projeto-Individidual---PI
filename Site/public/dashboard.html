@@ -39,16 +39,24 @@
     </div>
 
     <div class="main-content">
-      <div class="container" style="display: flex; flex-direction: column;">
-            <div class="containerKPI" style="display: flex; justify-content: center;">
-                <div class="KPI" id="kpiUs" style="background-color: rgb(0, 81, 255); height: 50px; width: 60px; margin: 1%;">Teste </div> 
-                <div class="KPI" id="kpiSug" style="background-color: rgb(0, 81, 255); height: 50px; width: 60px; margin: 1%;">Teste2 <div id="id_totalSug">0</div></div>
+      <div class="container">
+            <div class="containerKPI">
+                <div class="KPI" id="kpiUs">Total de usuários que sugeriram</div> 
+                <div class="KPI" id="kpiSug">Total de sugestões<div id="id_totalSug">0</div></div>
             </div>
         <div>
-            <div class="grafico" style="display: flex; justify-content: center; height: 200px;">
+          <p>Quantidade de sugestões dos usuários (5u)</p>
+            <div class="grafico">
                 <canvas id="id_grafico"></canvas>
             </div>
         </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <h4>Feito por Letícia Rodrigues dos Santos &hearts; SPTech &copy; 2025</h4>
+        <span class="version">v1.0.0</span>
       </div>
     </div>
 
@@ -66,13 +74,12 @@ const ctx = document.getElementById('id_grafico').getContext('2d');
  var graficoUsuarios =  new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: [],
       datasets: [
          {
            label: `Sugestões`,
            data: [],
            borderColor: '#ff6384',
-           backgroundColor: '#070909',
+           backgroundColor: '',
            fill: false
          }
       ]
