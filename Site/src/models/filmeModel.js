@@ -1,7 +1,7 @@
 var database = require("../database/config") // Tem que ser igual a controller
 
 function sugerir(nomeFilme, IdUsuario) {
-    var instrucaoSql = `INSERT INTO sugestao (FilmeSugerido, fkUsuario) VALUES ('${nomeFilme}', '${IdUsuario}') `;
+    var instrucaoSql = `INSERT INTO Sugestao (FilmeSugerido, fkUsuario) VALUES ('${nomeFilme}', '${IdUsuario}') `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -9,13 +9,13 @@ function sugerir(nomeFilme, IdUsuario) {
 
 
 function buscarSugestoes() {
-    var instrucaoSql = "SELECT * FROM sugestao";
+    var instrucaoSql = "SELECT * FROM Sugestao";
     
     return database.executar(instrucaoSql);
 }
 
 function buscarTotalUsuarios(){
-    var instrucaoSql = `SELECT COUNT(fkUsuario) as 'TotalUsuarios' FROM Sugestao;`
+    var instrucaoSql = `SELECT COUNT(DISTINCT fkUsuario) as 'TotalUsuarios' FROM Sugestao;`
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

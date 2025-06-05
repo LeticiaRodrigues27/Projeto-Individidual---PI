@@ -54,14 +54,14 @@ function cadastrar(){
     msg.innerHTML = ``;
 
     if(nomeVar == ""){
-        msg.innerHTML = `<strong style="color: darkblue;>"Insira um nome! </strong>`;
+        msg.innerHTML = `<strong style="color: darkblue;">Insira um nome! </strong>`;
     } else if(emailVar.indexOf("@") == -1 || emailVar == ''){
-        msg.innerHTML = `<strong style="color: darkblue;>"Insira um email válido! </strong>`;
+        msg.innerHTML = `<strong style="color: darkblue;">Insira um email válido! </strong>`;
     } else if(senhaVar.length < 6){
-        msg.innerHTML = `<strong style="color: darkblue;>"A senha deve ter 6 caracteres </strong>`;
-    }
+        msg.innerHTML = `<strong style="color: darkblue;">A senha deve ter 6 caracteres</strong>`;
+    }else{
 
-        // Enviando o valor da nova input
+              // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
@@ -99,6 +99,10 @@ function cadastrar(){
       });
 
     return false;
+
+    }
+
+
 }
 
 </script>
