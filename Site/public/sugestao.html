@@ -108,14 +108,11 @@
             console.log(dados);
             lista_sugestoes = dados; // atualiza a lista de sugestões com base nos dados retornados do BANCO
 
-            var mensagem = '';
-
             for (let i = 0; i < lista_sugestoes.length; i++) { // percorre a lista de sugestões para exibir na tela
               const sugestao = lista_sugestoes[i];
-              mensagem += `${sugestao.FilmeSugerido} <br>`;
+              mostrarLista.innerHTML += `<b>${sugestao.FilmeSugerido}</b> <br>`;
             }
 
-            mostrarLista.innerHTML = mensagem;
           })
       })
       .catch(function (erro) {
@@ -138,4 +135,6 @@
         console.error(erro);
       })
   }
+
+  buscarFilmes()
 </script>

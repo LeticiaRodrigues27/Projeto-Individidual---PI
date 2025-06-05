@@ -56,14 +56,14 @@ var tentativas = 4;
 
         if(tentativas == 0){
 
-            msg.innerHTML = `Tentativas excedidas!`;
+            msg.innerHTML = `<strong> Tentativas excedidas! </strong>`;
 
             botao_enviar.disabled;
 
         }
         else if(emailVar == '' || senhaVar == ''){
 
-            msg.innerHTML = `Preencha todos os campos!`;
+            msg.innerHTML = `<strong> Preencha todos os campos para logar </strong>`;
 
         }
         else {
@@ -100,9 +100,9 @@ var tentativas = 4;
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
-                msg.innerHTML = `Email ou senha incorretos!<br>`;
+                msg.innerHTML = `<strong> Email ou senha incorretos!<br> </strong>`;
                 tentativas--;
-                msg.innerHTML += `Tentativas restantes: ${tentativas}`;
+                msg.innerHTML += `<strong> Tentativas restantes: ${tentativas} </strong>`;
 
                 resposta.text().then(texto => {
                     console.error(texto);

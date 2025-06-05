@@ -19,7 +19,7 @@ body {
   padding: 3%;
   box-sizing: border-box;
   background-color: #4181ba; /* Cor: Coral Colar De Safira */
-  width: 35%;
+  width: 30%;
   height: 30%;
 }
 
@@ -34,7 +34,7 @@ body {
   padding: 3%;
   box-sizing: border-box;
   background-color: #4181ba;
-  width: 35%;
+  width: 30%;
   height: 45%;
 }
 
@@ -119,7 +119,7 @@ body {
 #botao_enviar {
   background-color: #000000;
   color: white;
-  width: 15%;
+  width: 17%;
   height: 10%;
   padding: 2%;
   border-radius: 4px;
