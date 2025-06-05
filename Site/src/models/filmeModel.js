@@ -15,7 +15,7 @@ function buscarSugestoes() {
 }
 
 function buscarTotalUsuarios(){
-    var instrucaoSql = `SELECT COUNT(fkUsuario) as 'TotalUsuários' FROM Sugestao;`
+    var instrucaoSql = `SELECT COUNT(fkUsuario) as 'TotalUsuarios' FROM Sugestao;`
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

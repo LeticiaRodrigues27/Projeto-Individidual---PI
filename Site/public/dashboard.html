@@ -34,18 +34,18 @@
     <div class="intro">
       <div class="container">
         <span id="titulo">Dashboard</span>
-        <p class="assunto">Veja as informações de sugestão</p>
+        <p class="assunto">Veja as informações de sugestão!</p>
       </div>
     </div>
 
     <div class="main-content">
       <div class="container">
             <div class="containerKPI">
-                <div class="KPI" id="kpiUs">Total de usuários que sugeriram</div> 
-                <div class="KPI" id="kpiSug">Total de sugestões<div id="id_totalSug">0</div></div>
+                <div class="KPI" id="kpiUs">Total de usuários que sugeriram <div id="id_totalUs">0</div> </div> 
+                <div class="KPI" id="kpiSug">Total de sugestões <div id="id_totalSug">0</div> </div>
             </div>
         <div>
-          <p>Quantidade de sugestões dos usuários (5u)</p>
+          <p>Quantidade de sugestões dos usuários (5)</p>
             <div class="grafico">
                 <canvas id="id_grafico"></canvas>
             </div>
@@ -161,11 +161,28 @@ fetch("/filmes/buscarTotalSugestao", {
       });
 
 
+fetch("/filmes/buscarTotalUsuarios", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+
+        resposta.json().then(json => {
+                   id_totalUs.innerHTML =  json[0].TotalUsuarios
+                });
+
+
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    
+      });      
+
+
   }
-
-
-
-
-
 
     </script>
