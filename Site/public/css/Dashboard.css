@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    font-family: "Barlow", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    background-image: url(../assets/icone+wallpaper/WallpaperHome.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* mantém a imagem de fundo fixa quando rolamos a página */
+}
+
+/* Container principal - todo conteúdo que vai ser centralizado tem essa class - header, intro e footer */
+.container {
+    width: 960px;
+    margin: 0 auto; /* 0 em baixo e em cima, auto na esquerda e direita */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-sizing: border-box; /* garante que padding não aumente a largura total */
+}
+
+/* Cabeçalho (header) */
+.header {
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.header .container {
+    background-color: #4181ba;
+    color: #ffffff;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 20px; /* cima e baixo + esquerda e direita */
+    border-radius: 8px;
+}
+
+#logonav {
+    height: 66px;
+    position: absolute; /* define a posição de forma independente do fluxo normal */
+    left: 20%; /* posição na navbar */
+    transform: translateX(-75%); /* posição horizoltal */
+    top: 55px; /* posição vertical */
+}
+
+.navbar {
+    list-style: none; /* sem marcadores */
+    margin: 2px;
+    padding: 0;
+    display: flex;
+    height: 20px;
+}
+
+.navbar li {
+    margin-left: 20px;
+}
+
+.navbar a{
+    text-decoration: none; /* sem sublinhar */
+    color: #ffffff;
+    font-weight: 500;
+    padding: 8px 8px;
+    border-radius: 8px;
+}
+
+.navbar a:hover, .navbar .agora a:hover {
+    background-color: #5e6973;
+}
+
+/* introducao e conteudo*/
+.intro .botao-jogo {
+  background-color: #4181ba;
+  color: #ffffff;
+  width: 75px;
+  height: 35px;
+  padding: 3px;
+  border-radius: 5px;
+  border: transparent;
+  font-weight: 700;
+}
+
+.intro .botao-jogo:hover {
+    background-color: #5e6973;
+}
+
+.intro {
+    margin-bottom: 10px;
+    text-align: center;
+    /* box-sizing: border-box; */
+}
+
+.intro .container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.intro #titulo {
+    font-size: 2em; /* conta - 2 x 16px = 32px */
+    font-weight: bold;
+    color: #1A4A74;
+}
+
+.intro .assunto, .conteudo .assunto{
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #111111;
+    margin: 3px 5px 15px 5px;
+    justify-self: center;
+}
+
+.intro .informacoes, .conteudo .informacoes {
+    font-size: 1em;
+    font-weight: 410;
+    color: #000000;
+}
+
+.intro .caixa-informacoes, .conteudo .caixa-informacoes {
+    background-color: #93c6f3;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+.conteudo .resultado {
+    background-color: #93c6f3;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+    padding: 10px;
+    width: fit-content;
+    justify-self: center;
+    margin: 10px;
+}
+
+.conteudo .container {
+    margin-bottom: 8px;
+}
+
+.conteudo #cena {
+    display: flex;
+    justify-content: center;
+}
+
+.conteudo #cena #imagem {
+    border-radius: 7px;
+    width: 450px; 
+    height: auto
+}
+
+.conteudo #botoes {
+    justify-self: center;    
+}
+
+.conteudo #opcaoA {
+    margin-top: 10px;
+    background-color: #5e6973;
+    font-size: 0.9em;
+    color: #ffffff;    
+    width: 130px;
+    height: 30px;
+    padding: 2px;
+    border-radius: 4px;
+    border: transparent;
+    font-weight: 500;
+}
+
+.conteudo #opcaoB {
+    margin-top: 10px;
+    background-color: #5e6973;
+    font-size: 0.9em;
+    color: #ffffff;    
+    width: 130px;
+    height: 30px;
+    padding: 2px;
+    border-radius: 4px;
+    border: transparent;
+    font-weight: 500;
+}
+
+.conteudo #opcaoC {
+    margin-top: 10px;
+    background-color: #5e6973;
+    font-size: 0.9em;
+    color: #ffffff;    
+    width: 130px;
+    height: 30px;
+    padding: 2px;
+    border-radius: 4px;
+    border: transparent;
+    font-weight: 500;
+}
+
+.conteudo #opcaoD {
+    margin-top: 10px;
+    background-color: #5e6973;
+    font-size: 0.9em;
+    color: #ffffff;    
+    width: 130px;
+    height: 30px;
+    padding: 2px;
+    border-radius: 4px;
+    border: transparent;
+    font-weight: 500;
+}
+
+.conteudo #verificar {
+    display: flex;
+    justify-self: center;
+    margin-top: 10px;
+    background-color:#216096;
+    font-size: 1em;
+    color: #ffffff;    
+    width: 70px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 4px;
+    border: transparent;
+    font-weight: 500;
+}
+
+#nome-filme {
+    outline-width: thick;
+    outline-color: #000000;
+}
+
+#botao-adicionar {
+    background-color: #4181ba;
+    color: #ffffff;
+    width: 77px;
+    height: 30px;
+    padding: 3px;
+    border-radius: 5px;
+    border: transparent;
+    font-weight: 700;
+}
+
+/* rodapé (footer) */
+.footer {
+    padding: 5px 0;
+    text-align: center;
+}
+
+.footer .container {
+    background-color: #4181ba;
+    color: white;
+    border-radius: 8px;
+}
+
+.footer h4 {
+    margin: 0;
+    font-size: 1em;
+}
+
+.footer .version {
+    font-size: 0.8em;
+    color: #ffffff;
+}

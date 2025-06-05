@@ -36,8 +36,46 @@ function buscarSugestoes(req, res) {
     })
 
 }
+function buscarTotalUsuarios(req,res){
+    filmeModel.buscarTotalUsuarios()
+    .then(
+        function (resposta) {
+            res.status(200).send(resposta);
+        }
+    )
+    .catch(function (erro) {
+        res.status(500).send(erro)
+    })
+}
+
+function gerarGrafico(req,res){
+     filmeModel.gerarGrafico()
+    .then(
+        function (resposta) {
+            res.status(200).send(resposta);
+        }
+    )
+    .catch(function (erro) {
+        res.status(500).send(erro)
+    })
+}
+
+function buscarTotalSugestao(req,res){
+     filmeModel.buscarTotalSugestao()
+    .then(
+        function (resposta) {
+            res.status(200).send(resposta);
+        }
+    )
+    .catch(function (erro) {
+        res.status(500).send(erro)
+    })
+}
 
 module.exports = {
     sugerir,
-    buscarSugestoes
+    buscarSugestoes,
+    buscarTotalUsuarios,
+    gerarGrafico,
+    buscarTotalSugestao
 }

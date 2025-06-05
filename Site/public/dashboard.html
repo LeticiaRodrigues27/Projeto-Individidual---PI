@@ -1,18 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le Cinéma | Dashboard</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Le cinéma | Sugestões</title>
+
+  <link rel="stylesheet" href="css/Dashboard.css">
+  <link rel="icon" href="./assets/icone+wallpaper/logoborda.png">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
+
 <body>
-    
+
+  <div class="header">
+    <div class="container">
+      <ul class="navbar">
+        <img id="logonav" src="./assets/icone+wallpaper/logoborda.png">
+        <li class="agora"><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="filmes-conforto.html">Filmes Conforto</a></li>
+        <li><a href="filmes-arte.html">Filmes Arte</a></li>
+        <li><a href="sugestao.html">Sugestões</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+    </div>
+  </div>
+
+    <div class="intro">
+      <div class="container">
+        <span id="titulo">Dashboard</span>
+        <p class="assunto">Veja as informações de sugestão</p>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="container" style="display: flex; flex-direction: column;">
+            <div class="containerKPI" style="display: flex; justify-content: center;">
+                <div class="KPI" id="kpiUs" style="background-color: rgb(0, 81, 255); height: 50px; width: 60px; margin: 1%;">Teste </div> 
+                <div class="KPI" id="kpiSug" style="background-color: rgb(0, 81, 255); height: 50px; width: 60px; margin: 1%;">Teste2 <div id="id_totalSug">0</div></div>
+            </div>
+        <div>
+            <div class="grafico" style="display: flex; justify-content: center; height: 200px;">
+                <canvas id="id_grafico"></canvas>
+            </div>
+        </div>
+      </div>
+    </div>
+
 </body>
+
 </html>
+    <script>
 
-<script>
-// KPI - Quantidade total de usuários
-// KPI - Quantidade total de sugestões
-// Gráfico de barras - Compara a quantidade entre diferentes usuários mostrando quem sugeriu mais ou menos
+plotarKPI()
+gerarGrafico()
 
-</script>
+
+
+const ctx = document.getElementById('id_grafico').getContext('2d');
+ var graficoUsuarios =  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: [],
+      datasets: [
+         {
+           label: `Sugestões`,
+           data: [],
+           borderColor: '#ff6384',
+           backgroundColor: '#070909',
+           fill: false
+         }
+      ]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          title: {
+            display: true,
+            text: 'Sugestões'
+          }
+        },
+        x: {
+          title: {
+            display: true,
+            text: 'Usuários'
+          }
+        }
+      }
+    }
+  });
+
+  function gerarGrafico(){
+
+
+     fetch("/filmes/gerarGrafico", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+
+         resposta.json().then(json => {
+          
+                   for (var i = 0; i<json.length; i++){
+                    var  sug = json[i].SugestoesUsuario;
+                    var  nome = json[i].Nome;
+                    graficoUsuarios.data.datasets[0].data.push(sug)
+                    graficoUsuarios.data.labels.push(nome)
+                   }
+
+                   graficoUsuarios.update()
+                });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    
+      });
+
+
+
+  }
+
+  function plotarKPI(){
+
+fetch("/filmes/buscarTotalSugestao", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+
+        resposta.json().then(json => {
+                   id_totalSug.innerHTML =  json[0].TotalSugestoes
+                });
+
+
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    
+      });
+
+
+  }
+
+
+
+
+
+
+    </script>
