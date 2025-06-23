@@ -21,7 +21,7 @@ constraint fkUsuarioSugestao foreign key (fkUsuario)
 );
 
 -- Select para a KPI de total de usuários que sugeriram
-SELECT COUNT(fkUsuario) as 'TotalUsuários' FROM Sugestao;
+SELECT COUNT(fkUsuario) as 'TotalUsuarios' FROM Sugestao;
 
 -- Select para a KPI de total de sugestões,
 SELECT COUNT(FilmeSugerido) as 'TotalSugestoes' FROM Sugestao;
@@ -29,6 +29,6 @@ SELECT COUNT(FilmeSugerido) as 'TotalSugestoes' FROM Sugestao;
 -- Select para gráfico de quantidade de sugestões de usuários (5 úsuários)
 SELECT Nome, COUNT(FilmeSugerido) as 'SugestõesUsuário' FROM Sugestao JOIN Usuario ON idUsuario = fkUsuario GROUP BY (fkUsuario) limit 5;
 
-select * from usuario;
-select * from sugestao;
+select * from Usuario;
+select * from Sugestao;
 
